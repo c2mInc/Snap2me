@@ -40,13 +40,13 @@
 		607FACE51AFB9204008FA782 /* Snap2me_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Snap2me_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		640798EF64BA27BEF892D620 /* Snap2me.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = Snap2me.podspec; path = ../Snap2me.podspec; sourceTree = "<group>"; };
-		66E30AE1494FE6D1EE4B2835 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		640798EF64BA27BEF892D620 /* Snap2me.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Snap2me.podspec; path = ../Snap2me.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		66E30AE1494FE6D1EE4B2835 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		7FD4DAAB2135E990D517F218 /* Pods_Snap2me_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Snap2me_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		908D68B79D67C5C97C43DA4A /* Pods-Snap2me_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Snap2me_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Snap2me_Example/Pods-Snap2me_Example.release.xcconfig"; sourceTree = "<group>"; };
 		A6DE125D78FBC1EE758DF781 /* Pods_Snap2me_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Snap2me_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB56193E1E3A3FE604261A7A /* Pods-Snap2me_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Snap2me_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Snap2me_Example/Pods-Snap2me_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		CF248C975ED45E459BB3B708 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		CF248C975ED45E459BB3B708 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */

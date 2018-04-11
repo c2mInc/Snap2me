@@ -1,0 +1,6 @@
+framework module Pods_Snap2me_Tests {
+  umbrella header "Pods-Snap2me_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

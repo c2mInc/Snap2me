@@ -1,0 +1,6 @@
+framework module Snap2me {
+  umbrella header "Snap2me-umbrella.h"
+
+  export *
+  module * { export * }
+}

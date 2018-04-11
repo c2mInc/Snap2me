@@ -1,0 +1,27 @@
+PODS:
+  - Nimble (7.0.3)
+  - Quick (1.2.0)
+  - Snap2me (0.1.0)
+
+DEPENDENCIES:
+  - Nimble (~> 7.0.2)
+  - Quick (~> 1.2.0)
+  - Snap2me (from `../`)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Nimble
+    - Quick
+
+EXTERNAL SOURCES:
+  Snap2me:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
+  Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
+  Snap2me: 2550bafe83beabdad1c6a7dab2ceb62820f2385f
+
+PODFILE CHECKSUM: 2bf122a464d487b60d1da90c0c24df375e1c01d4
+
+COCOAPODS: 1.5.0
