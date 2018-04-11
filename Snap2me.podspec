@@ -29,7 +29,7 @@ Your views need some guidance when users drag and drop things in it. Snap2me hel
   s.social_media_url = 'https://twitter.com/erkekin'
 
   s.ios.deployment_target = '9.0'
-
+  s.swift_version = '4.0'
   s.source_files = 'Snap2me/Classes/**/*'
   
   # s.resource_bundles = {
