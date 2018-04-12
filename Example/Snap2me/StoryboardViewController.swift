@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  StoryboardViewController.swift
 //  Snap2me
 //
 //  Created by erkekin on 04/11/2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class StoryboardViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

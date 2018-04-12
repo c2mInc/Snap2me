@@ -7,10 +7,10 @@ public struct GuideLine{
     public let axis:Axis
     public let distance:CGFloat
     
-
     public static func create(intersectionPoints:[CGPoint],
                               size:CGSize,
                               lineColor: UIColor = UIColor.blue,
+                              lineWidth: CGFloat = 1,
                               shadowColor: UIColor? = UIColor.black) -> Set<GuideLine>{
         
         func createAxisLayer(starts: CGPoint,ends: CGPoint) -> Snap2meShapeLayer{
@@ -22,7 +22,7 @@ public struct GuideLine{
             path.close()
             layer.path = path.cgPath
             layer.strokeColor = lineColor.cgColor
-            layer.lineWidth = 1
+            layer.lineWidth = lineWidth
             if let shadowColor = shadowColor {
                 layer.dropShadow(color: shadowColor, offSet: CGSize.zero)
             }
