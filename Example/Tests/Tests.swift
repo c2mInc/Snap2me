@@ -6,45 +6,23 @@ import Snap2me
 
 class TableOfContentsSpec: QuickSpec {
     override func spec() {
-        describe("these will fail") {
+   
+                describe("guidlines should give the correct distance") {
+        
+                    it("vertical") {
+                       let guideLine = GuideLine.create(axisPercentages: [GuideLine.AxisPercentage(axis: .vertical, percentage: 0.5)], size: CGSize(width: 100, height: 100))
 
-            it("can do maths") {
-                expect(1) == 2
-            }
-
-            it("can read") {
-                expect("number") == "string"
-            }
-
-            it("will eventually fail") {
-                expect("time").toEventually( equal("done") )
-            }
-            
-            context("these will pass") {
-
-                it("can do maths") {
-                    expect(23) == 23
-                }
-
-                it("can read") {
-                    expect("🐮") == "🐮"
-                }
-
-                it("will eventually pass") {
-                    var time = "passing"
-
-                    DispatchQueue.main.async {
-                        time = "done"
+                        guideLine.forEach{
+                            expect($0.distance) == 50
+                        }
                     }
-
-                    waitUntil { done in
-                        Thread.sleep(forTimeInterval: 0.5)
-                        expect(time) == "done"
-
-                        done()
+                    it("horizontal") {
+                        let guideLine = GuideLine.create(axisPercentages: [GuideLine.AxisPercentage(axis: .horizontal, percentage: 0.5)], size: CGSize(width: 100, height: 100))
+                        
+                        guideLine.forEach{
+                            expect($0.distance) == 50
+                        }
                     }
                 }
-            }
-        }
     }
 }
