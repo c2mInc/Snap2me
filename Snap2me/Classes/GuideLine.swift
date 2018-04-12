@@ -1,4 +1,5 @@
 public struct GuideLine{
+    
     public enum Axis{
         case vertical
         case horizontal
@@ -7,48 +8,74 @@ public struct GuideLine{
     public let axis:Axis
     public let distance:CGFloat
     
-    public static func create(percentages:[CGPoint]) -> Set<GuideLine>{
-        
-        
-        
-        
-        
-        return []
+    public struct AxisPercentage {
+        let axis:Axis
+        let percentage:CGFloat
+        public init(axis: Axis, percentage: CGFloat) {
+            self.axis = axis
+            self.percentage = percentage
+        }
     }
     
-    public static func create(intersectionPoints: [CGPoint],
+    public struct Settings{
+        let lineColor: UIColor
+        let lineWidth: CGFloat
+        let shadowColor: UIColor?
+        let flushesInitially: Bool
+        
+        public init(lineColor: UIColor = UIColor.blue, lineWidth: CGFloat = 1, shadowColor: UIColor = UIColor.black, flushesInitially:Bool = false){
+            self.lineColor = lineColor
+            self.lineWidth = lineWidth
+            self.shadowColor = shadowColor
+            self.flushesInitially = flushesInitially
+        }
+   
+    }
+    
+    public static func create(axisPercentages:[AxisPercentage],
                               size: CGSize,
-                              lineColor: UIColor = UIColor.blue,
-                              lineWidth: CGFloat = 1,
-                              shadowColor: UIColor? = UIColor.black,
-                              flushesInitially: Bool = false) -> Set<GuideLine>{
+                              settings: Settings? = nil) -> Set<GuideLine>{
+        let settings = settings ?? Settings()
         
         func createAxisLayer(starts: CGPoint,ends: CGPoint) -> Snap2meShapeLayer{
             let layer = Snap2meShapeLayer()
-            layer.opacity = flushesInitially ? 0 : layer.visibleOpacity
+            layer.opacity = settings.flushesInitially ? layer.visibleOpacity : 0 
             let path = UIBezierPath()
             path.move(to: starts)
             path.addLine(to: ends)
             path.close()
             layer.path = path.cgPath
-            layer.strokeColor = lineColor.cgColor
-            layer.lineWidth = lineWidth
-            if let shadowColor = shadowColor {
+            layer.strokeColor = settings.lineColor.cgColor
+            layer.lineWidth = settings.lineWidth
+            if let shadowColor = settings.shadowColor {
                 layer.dropShadow(color: shadowColor, offSet: CGSize.zero)
             }
             return layer
         }
         
-        return Set<GuideLine>(intersectionPoints
-            .lazy.map({ point -> [GuideLine] in
-                let hh = createAxisLayer(starts: CGPoint(x: 0, y: point.y), ends: CGPoint(x: size.width, y: point.y))
-                let vv = createAxisLayer(starts: CGPoint(x: point.x, y: 0), ends: CGPoint(x: point.x, y: size.height))
-                let h = GuideLine(layer: vv, axis: .horizontal, distance: point.x)
-                let v = GuideLine(layer: hh, axis: .vertical, distance: point.y)
-                return [h, v]
+        return Set<GuideLine>(axisPercentages
+            .lazy.map({ axisPercentage -> [GuideLine] in
+                let distancey = size.height * axisPercentage.percentage
+                let distancex = size.width * axisPercentage.percentage
+                switch axisPercentage.axis{
+                case .horizontal:
+                    return [
+                        GuideLine(layer: createAxisLayer(starts: CGPoint(x: distancex, y: 0), ends: CGPoint(x: distancex, y: size.height)),
+                                  axis: .horizontal,
+                                  distance: distancex)
+                    ]
+                case .vertical:
+                    return [
+                        GuideLine(layer: createAxisLayer(starts: CGPoint(x: 0, y: distancey), ends: CGPoint(x: size.width, y: distancey)),
+                                  axis: .vertical,
+                                  distance: distancey)
+                    ]
+                }
+                
             })
             .flatMap { $0 })
     }
+    
 }
 
 extension GuideLine: Hashable{

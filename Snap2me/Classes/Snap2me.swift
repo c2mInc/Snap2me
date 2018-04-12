@@ -31,6 +31,8 @@ extension Snap2meView : UIGestureRecognizerDelegate {
 }
 open class Snap2meView: UIView {
     @IBOutlet weak var draggingView: UIView!
+    public var settings: GuideLine.Settings? = nil
+    public var axisPercentages: [GuideLine.AxisPercentage]? = nil
     public var programmaticDraggingView: UIView? = nil
     
     var lines:Set<GuideLine> = Set<GuideLine>()
@@ -53,7 +55,10 @@ open class Snap2meView: UIView {
             
             guard gridsRendered ==  false else {return}
             gridsRendered = true
-            lines = GuideLine.create(intersectionPoints: [CGPoint(x: viewToSnap.bounds.midX, y: viewToSnap.bounds.midY)], size: viewToSnap.frame.size)
+            lines = GuideLine.create(axisPercentages: axisPercentages ?? [
+                GuideLine.AxisPercentage(axis: .vertical, percentage: 0.5),
+                GuideLine.AxisPercentage(axis: .horizontal, percentage: 0.5)
+                ], size: viewToSnap.frame.size, settings: settings)
             lines.forEach{
                 viewToSnap.layer.addSublayer($0.layer)
             }
@@ -77,8 +82,15 @@ open class Snap2meView: UIView {
                 self.center = CGPoint(x: viewToSnap.frame.midX, y: viewToSnap.frame.midY)
                 
                 for line in lines{
+                    switch line.axis {
+                    case .horizontal:
+                        self.center.x = line.distance + viewToSnap.frame.origin.x
+                    case .vertical:
+                        self.center.y = line.distance + viewToSnap.frame.origin.y
+                    }
                     line.layer.opacity = line.layer.visibleOpacity
                 }
+                
             }else{
                 
                 self.center = draggingPoint

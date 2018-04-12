@@ -10,12 +10,32 @@ import UIKit
 import Snap2me
 
 class SwiftViewController: UIViewController {
-    let draggableView = Snap2meView(frame: CGRect(x: 100, y: 100, width: 32, height: 32))
+     lazy var draggableView :Snap2meView = {
+        let container = Snap2meView(frame: CGRect(x: 100, y: 100, width: 60, height: 60))
+        container.backgroundColor = UIColor.clear
+        let 🎃 = UILabel()
+        🎃.text = "🎃"
+        🎃.textAlignment = .center
+        🎃.font = UIFont.systemFont(ofSize: 39.0)
+        🎃.bounds.size = container.bounds.size
+        🎃.center = CGPoint(x: container.bounds.midX, y: container.bounds.midY)
+        container.addSubview(🎃)
+    
+        container.axisPercentages = [
+            GuideLine.AxisPercentage(axis: .vertical, percentage: 0.5),
+            GuideLine.AxisPercentage(axis: .horizontal, percentage: 0.5),
+            GuideLine.AxisPercentage(axis: .horizontal, percentage: 0.1),
+            GuideLine.AxisPercentage(axis: .vertical, percentage: 0.1),
+            GuideLine.AxisPercentage(axis: .horizontal, percentage: 0.9),
+            GuideLine.AxisPercentage(axis: .vertical, percentage: 0.9)
+        ]
+        
+        return container
+    }()
     
     override func viewDidLoad() {
         super .viewDidLoad()
         
-        draggableView.backgroundColor = UIColor.gray
         let gridView = UIView()
 
         draggableView.programmaticDraggingView = gridView
@@ -23,6 +43,8 @@ class SwiftViewController: UIViewController {
         
         self.view.addSubview(gridView)
         self.view.addSubview(draggableView)
+        
+        draggableView.settings = GuideLine.Settings(lineColor: UIColor.red, lineWidth: 4, shadowColor: UIColor.brown, flushesInitially: true)
         
         NSLayoutConstraint.activate(
         [
