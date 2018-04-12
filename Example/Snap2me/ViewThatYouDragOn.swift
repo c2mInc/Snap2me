@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Snap2me
 
 class ViewThatYouDragOn:UIView{
     

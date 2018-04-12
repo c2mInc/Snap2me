@@ -1,54 +1,74 @@
-//
-//public struct GuideLine{
-//    enum Axis{
-//        case vertical
-//        case horizontal
-//    }
-//    let layer:CAShapeLayer
-//    let axis:Axis
-//    let distance:CGFloat
-//    
-//    static func create(intersectionPoints:[CGPoint], size:CGSize) -> Set<GuideLine>{
-//        
-//        return Set<GuideLine>(intersectionPoints
-//            .lazy.map({ point -> [GuideLine] in
-//                let horizontalLayer = CAShapeLayer()
-//                horizontalLayer.opacity = 1
-//                let horizontalPath = UIBezierPath()
-//                horizontalPath.move(to: CGPoint(x: 0, y: point.y))
-//                horizontalPath.addLine(to: CGPoint(x: size.width, y: point.y))
-//                horizontalPath.close()
-//                horizontalLayer.path = horizontalPath.cgPath
-//                horizontalLayer.strokeColor = UIColor.blue.cgColor
-//                horizontalLayer.lineWidth = 5
-//                
-//                horizontalLayer.dropShadow(color: .yellow, offSet: CGSize.zero)
-//                
-//                let verticalLayer = CAShapeLayer()
-//                let aPath = UIBezierPath()
-//                aPath.move(to: CGPoint(x: point.x, y: 0))
-//                aPath.addLine(to: CGPoint(x: point.x, y: size.height))
-//                aPath.close()
-//                verticalLayer.path = aPath.cgPath
-//                verticalLayer.strokeColor = UIColor.blue.cgColor
-//                verticalLayer.opacity = 1
-//                
-//                let h = GuideLine(layer: verticalLayer, axis: .horizontal, distance: point.x)
-//                let v = GuideLine(layer: horizontalLayer, axis: .vertical, distance: point.y)
-//                return [h, v]
-//                
-//            })
-//            .flatMap { $0 })
-//    }
-//}
-//
-//extension GuideLine: Hashable{
-//    public var hashValue: Int {
-//        return Int(distance*100) * (axis == .horizontal ? 1 : -1)
-//    }
-//    
-//    public static func ==(lhs: GuideLine, rhs: GuideLine) -> Bool {
-//        return lhs.axis == rhs.axis && lhs.layer == rhs.layer
-//    }
-//    
-//}
+public struct GuideLine{
+    public enum Axis{
+        case vertical
+        case horizontal
+    }
+    public let layer:Snap2meShapeLayer
+    public let axis:Axis
+    public let distance:CGFloat
+    
+
+    public static func create(intersectionPoints:[CGPoint],
+                              size:CGSize,
+                              lineColor: UIColor = UIColor.blue,
+                              shadowColor: UIColor? = UIColor.black) -> Set<GuideLine>{
+        
+        func createAxisLayer(starts: CGPoint,ends: CGPoint) -> Snap2meShapeLayer{
+            let layer = Snap2meShapeLayer()
+            layer.opacity = 1
+            let path = UIBezierPath()
+            path.move(to: starts)
+            path.addLine(to: ends)
+            path.close()
+            layer.path = path.cgPath
+            layer.strokeColor = lineColor.cgColor
+            layer.lineWidth = 1
+            if let shadowColor = shadowColor {
+                layer.dropShadow(color: shadowColor, offSet: CGSize.zero)
+            }
+            return layer
+        }
+        
+        return Set<GuideLine>(intersectionPoints
+            .lazy.map({ point -> [GuideLine] in
+                let hh = createAxisLayer(starts: CGPoint(x: 0, y: point.y), ends: CGPoint(x: size.width, y: point.y))
+                let vv = createAxisLayer(starts: CGPoint(x: point.x, y: 0), ends: CGPoint(x: point.x, y: size.height))
+                let h = GuideLine(layer: vv, axis: .horizontal, distance: point.x)
+                let v = GuideLine(layer: hh, axis: .vertical, distance: point.y)
+                return [h, v]
+                
+            })
+            .flatMap { $0 })
+    }
+}
+
+extension GuideLine: Hashable{
+    public var hashValue: Int {
+        return Int(distance*100) * (axis == .horizontal ? 1 : -1)
+    }
+    
+    public static func ==(lhs: GuideLine, rhs: GuideLine) -> Bool {
+        return lhs.axis == rhs.axis && lhs.layer == rhs.layer
+    }
+    
+}
+
+
+
+public class Snap2meShapeLayer : CAShapeLayer{
+    func dropShadow(color: UIColor, opacity: Float = 0.5, offSet: CGSize, radius: CGFloat = 4, scale: Bool = true) {
+        masksToBounds = false
+        shadowColor = color.cgColor
+        shadowOpacity = opacity
+        shadowOffset = offSet
+        shadowRadius = radius
+        shouldRasterize = true
+        rasterizationScale = scale ? UIScreen.main.scale : 1
+    }
+}
+
+public protocol Snapable{
+    var snapThreshold:CGFloat { get }
+    var viewToSnap: UIView? { get }
+    func checkForSnappingGrid(gestureRecognizer: UIPanGestureRecognizer) -> [GuideLine]
+}

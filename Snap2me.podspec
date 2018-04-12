@@ -11,14 +11,8 @@ Pod::Spec.new do |s|
   s.version          = '0.1.0'
   s.summary          = 'Snap2me helps you add the snap feature to your views.'
 
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
-
   s.description      = <<-DESC
-Your views need some guidance when users drag and drop things in it. Snap2me helps you implement these line guides into any view and its subviews are snapped once they are captured in a threshold.
+    Your views need some guidance when users drag and drop things in it. Snap2me helps you implement these line guides into any view and its subviews are snapped once they are captured in a threshold.
                        DESC
 
   s.homepage         = 'https://github.com/erkekin/Snap2me'
