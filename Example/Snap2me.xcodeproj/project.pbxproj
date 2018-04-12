@@ -15,8 +15,8 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		DC6E41249A6F429ABD2009D9 /* Pods_Snap2me_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6DE125D78FBC1EE758DF781 /* Pods_Snap2me_Example.framework */; };
-		FFA27804207E905B009BE3DB /* ViewThatYouDragOn.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA27803207E905B009BE3DB /* ViewThatYouDragOn.swift */; };
-		FFA27806207E90A2009BE3DB /* DraggingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA27805207E90A2009BE3DB /* DraggingView.swift */; };
+		FF2C3EDD207F4DBA00337DCB /* SwiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2C3EDC207F4DBA00337DCB /* SwiftViewController.swift */; };
+		FFA27806207E90A2009BE3DB /* CustomDraggableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA27805207E90A2009BE3DB /* CustomDraggableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,8 +49,8 @@
 		A6DE125D78FBC1EE758DF781 /* Pods_Snap2me_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Snap2me_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB56193E1E3A3FE604261A7A /* Pods-Snap2me_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Snap2me_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Snap2me_Example/Pods-Snap2me_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		CF248C975ED45E459BB3B708 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		FFA27803207E905B009BE3DB /* ViewThatYouDragOn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewThatYouDragOn.swift; sourceTree = "<group>"; };
-		FFA27805207E90A2009BE3DB /* DraggingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggingView.swift; sourceTree = "<group>"; };
+		FF2C3EDC207F4DBA00337DCB /* SwiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftViewController.swift; sourceTree = "<group>"; };
+		FFA27805207E90A2009BE3DB /* CustomDraggableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDraggableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,9 +98,9 @@
 			isa = PBXGroup;
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				FFA27803207E905B009BE3DB /* ViewThatYouDragOn.swift */,
-				FFA27805207E90A2009BE3DB /* DraggingView.swift */,
+				FFA27805207E90A2009BE3DB /* CustomDraggableView.swift */,
 				607FACD71AFB9204008FA782 /* StoryboardViewController.swift */,
+				FF2C3EDC207F4DBA00337DCB /* SwiftViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -349,10 +349,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF2C3EDD207F4DBA00337DCB /* SwiftViewController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* StoryboardViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
-				FFA27804207E905B009BE3DB /* ViewThatYouDragOn.swift in Sources */,
-				FFA27806207E90A2009BE3DB /* DraggingView.swift in Sources */,
+				FFA27806207E90A2009BE3DB /* CustomDraggableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

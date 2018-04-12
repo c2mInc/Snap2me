@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -58,6 +57,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="i0a-fi-fGw" kind="show" id="O1R-KY-GBt"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="mh9-AA-jMV" style="IBUITableViewCellStyleDefault" id="CB5-k2-63i">
                                         <rect key="frame" x="0.0" y="88" width="375" height="44"/>
@@ -85,7 +87,7 @@
                         </connections>
                     </tableView>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" title="Snap2me" id="eWC-fd-fD9"/>
+                    <navigationItem key="navigationItem" title="Snap2me" largeTitleDisplayMode="always" id="eWC-fd-fD9"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HFO-RM-Zd2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -107,10 +109,10 @@
             </objects>
             <point key="canvasLocation" x="-1535" y="133"/>
         </scene>
-        <!--Storyboard View Controller-->
+        <!--Storyboard-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="StoryboardViewController" customModule="Snap2me_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Storyboard" id="vXZ-lx-hvc" customClass="StoryboardViewController" customModule="Snap2me_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -119,33 +121,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q9W-bJ-6qP" customClass="ViewThatYouDragOn" customModule="Snap2me_Example" customModuleProvider="target">
-                                <rect key="frame" x="48" y="166.5" width="279" height="333.5"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hIs-N2-Tgi" customClass="DraggingView" customModule="Snap2me_Example" customModuleProvider="target">
-                                        <rect key="frame" x="55" y="228" width="76" height="80"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </view>
-                                </subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q9W-bJ-6qP">
+                                <rect key="frame" x="94" y="166.5" width="187.5" height="333.5"/>
                                 <color key="backgroundColor" red="0.55203036350000001" green="1" blue="0.33951805460000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hIs-N2-Tgi" customClass="CustomDraggableView" customModule="Snap2me_Example" customModuleProvider="target">
+                                <rect key="frame" x="94" y="96" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <outlet property="draggingView" destination="hIs-N2-Tgi" id="1ak-hD-Ajh"/>
+                                    <outlet property="draggingView" destination="q9W-bJ-6qP" id="H4y-5k-Dei"/>
                                 </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="q9W-bJ-6qP" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="32" id="AcJ-Ud-kJH"/>
-                            <constraint firstItem="q9W-bJ-6qP" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="Y3N-Qx-1uL"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="q9W-bJ-6qP" secondAttribute="trailing" constant="32" id="meg-Js-SF7"/>
-                            <constraint firstItem="q9W-bJ-6qP" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" multiplier="0.5" id="usH-fI-Yul"/>
+                            <constraint firstItem="q9W-bJ-6qP" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="5qq-30-hHH"/>
+                            <constraint firstItem="q9W-bJ-6qP" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="RwK-qq-1Sl"/>
+                            <constraint firstItem="q9W-bJ-6qP" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" multiplier="0.5" id="TP2-L4-6Nc"/>
+                            <constraint firstItem="q9W-bJ-6qP" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" multiplier="0.5" id="Uvs-c0-ce1"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140" y="132.68365817091455"/>
+            <point key="canvasLocation" x="213.59999999999999" y="132.68365817091455"/>
+        </scene>
+        <!--Swift-->
+        <scene sceneID="dCW-Ya-FYa">
+            <objects>
+                <viewController title="Swift" id="i0a-fi-fGw" customClass="SwiftViewController" customModule="Snap2me_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8yd-q0-2pc"/>
+                        <viewControllerLayoutGuide type="bottom" id="u8G-b4-Omx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="W6G-5t-LgW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EnZ-jN-C9o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="214" y="878"/>
         </scene>
     </scenes>
 </document>

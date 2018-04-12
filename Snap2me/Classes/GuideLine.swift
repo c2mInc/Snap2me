@@ -7,15 +7,25 @@ public struct GuideLine{
     public let axis:Axis
     public let distance:CGFloat
     
-    public static func create(intersectionPoints:[CGPoint],
-                              size:CGSize,
+    public static func create(percentages:[CGPoint]) -> Set<GuideLine>{
+        
+        
+        
+        
+        
+        return []
+    }
+    
+    public static func create(intersectionPoints: [CGPoint],
+                              size: CGSize,
                               lineColor: UIColor = UIColor.blue,
                               lineWidth: CGFloat = 1,
-                              shadowColor: UIColor? = UIColor.black) -> Set<GuideLine>{
+                              shadowColor: UIColor? = UIColor.black,
+                              flushesInitially: Bool = false) -> Set<GuideLine>{
         
         func createAxisLayer(starts: CGPoint,ends: CGPoint) -> Snap2meShapeLayer{
             let layer = Snap2meShapeLayer()
-            layer.opacity = 1
+            layer.opacity = flushesInitially ? 0 : layer.visibleOpacity
             let path = UIBezierPath()
             path.move(to: starts)
             path.addLine(to: ends)
@@ -36,7 +46,6 @@ public struct GuideLine{
                 let h = GuideLine(layer: vv, axis: .horizontal, distance: point.x)
                 let v = GuideLine(layer: hh, axis: .vertical, distance: point.y)
                 return [h, v]
-                
             })
             .flatMap { $0 })
     }
@@ -50,12 +59,10 @@ extension GuideLine: Hashable{
     public static func ==(lhs: GuideLine, rhs: GuideLine) -> Bool {
         return lhs.axis == rhs.axis && lhs.layer == rhs.layer
     }
-    
 }
 
-
-
 public class Snap2meShapeLayer : CAShapeLayer{
+    var visibleOpacity :Float = 0.3
     func dropShadow(color: UIColor, opacity: Float = 0.5, offSet: CGSize, radius: CGFloat = 4, scale: Bool = true) {
         masksToBounds = false
         shadowColor = color.cgColor
