@@ -96,7 +96,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <outlet property="draggingView" destination="kfZ-LD-lfB" id="jz4-cD-AEZ"/>
+                                    <outlet property="viewToSnapInStoryBoard" destination="kfZ-LD-lfB" id="iH1-c3-f7s"/>
                                 </connections>
                             </view>
                         </subviews>

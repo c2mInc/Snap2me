@@ -22,12 +22,14 @@ public struct GuideLine{
         let lineWidth: CGFloat
         let shadowColor: UIColor?
         let flushesInitially: Bool
+        let threshold: CGFloat
         
-        public init(lineColor: UIColor = UIColor.blue, lineWidth: CGFloat = 1, shadowColor: UIColor = UIColor.black, flushesInitially:Bool = false){
+        public init(lineColor: UIColor = UIColor.blue, lineWidth: CGFloat = 1, shadowColor: UIColor = UIColor.black, flushesInitially:Bool = false, threshold:CGFloat = 15){
             self.lineColor = lineColor
             self.lineWidth = lineWidth
             self.shadowColor = shadowColor
             self.flushesInitially = flushesInitially
+            self.threshold = threshold
         }
    
     }

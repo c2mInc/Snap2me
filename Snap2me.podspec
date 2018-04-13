@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Snap2me'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'Snap2me helps you add the snap feature to your views.'
 
   s.description      = <<-DESC
@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
                        DESC
 
   s.homepage         = 'https://github.com/erkekin/Snap2me'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.screenshots     = 'https://github.com/erkekin/Snap2me/blob/master/gifs/storyboard.gif?raw=true', 'https://github.com/erkekin/Snap2me/blob/master/gifs/swift.gif?raw=true'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'erkekin' => 'erkekin@gmail.com' }
   s.source           = { :git => 'https://github.com/erkekin/Snap2me.git', :tag => s.version.to_s }
@@ -25,12 +25,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '9.0'
   s.swift_version = '4.0'
   s.source_files = 'Snap2me/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'Snap2me' => ['Snap2me/Assets/*.png']
-  # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end

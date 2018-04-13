@@ -1,10 +1,9 @@
 
 
 extension Snap2meView:Snapable{
-    
-    public var snapThreshold:CGFloat {return 10}
-    public var viewToSnap: UIView?{
-        return programmaticDraggingView ?? draggingView
+    public var snapThreshold :CGFloat {return settings?.threshold ?? 10}
+    public var viewToSnap :UIView?{
+        return programmaticDraggingView ?? viewToSnapInStoryBoard
     }
     public func checkForSnappingGrid(gestureRecognizer: UIPanGestureRecognizer) -> [GuideLine]{
         let draggingPoint = gestureRecognizer.location(in: viewToSnap!)
@@ -30,13 +29,13 @@ extension Snap2meView : UIGestureRecognizerDelegate {
     
 }
 open class Snap2meView: UIView {
-    @IBOutlet weak var draggingView: UIView!
-    public var settings: GuideLine.Settings? = nil
-    public var axisPercentages: [GuideLine.AxisPercentage]? = nil
-    public var programmaticDraggingView: UIView? = nil
+    @IBOutlet weak var viewToSnapInStoryBoard: UIView!
+    public var settings :GuideLine.Settings? = nil
+    public var axisPercentages :[GuideLine.AxisPercentage]? = nil
+    public var programmaticDraggingView :UIView? = nil
     
     var lines:Set<GuideLine> = Set<GuideLine>()
-    var gridsRendered:Bool = false
+    var gridsRendered :Bool = false
     
     public override init(frame: CGRect) {
         super.init(frame: frame)

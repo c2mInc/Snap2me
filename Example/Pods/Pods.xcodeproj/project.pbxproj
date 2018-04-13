@@ -105,7 +105,7 @@
 		CF55697859D633C852C3586384647EB6 /* NimbleXCTestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240CEA0915AA3241F6A49CB65CEC8767 /* NimbleXCTestHandler.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		D03A59C0E669F5536F4A8064EBCF8F5E /* Quick.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C846417EADDAAFF733CF6AC8FEB5EEA /* Quick.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D3E4A994FA030193E27F3F03770A5DFF /* QuickSelectedTestSuiteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C7D6328493B73EF741AC61F4CEF01E /* QuickSelectedTestSuiteBuilder.swift */; };
-		D50636A0D4B07C187EB5B7499B738211 /* Snap2me.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B76DEA3B7D5FFF6D036DF36C382887 /* Snap2me.swift */; };
+		D50636A0D4B07C187EB5B7499B738211 /* Snap2meView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B76DEA3B7D5FFF6D036DF36C382887 /* Snap2meView.swift */; };
 		D8842536974E5E4012AC313C4AB93AB1 /* QuickConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D2E298780429D096F1EC434CFC3B225 /* QuickConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D9E62C41794D0B5D2CD68CA92C4BA836 /* mach_excServer.c in Sources */ = {isa = PBXBuildFile; fileRef = 679FFD5386CAB1887F96D8FF6D84B7B8 /* mach_excServer.c */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		DE9AEF1065DB4339B7025CF2C5D91878 /* QCKDSL.m in Sources */ = {isa = PBXBuildFile; fileRef = 12989D830FCE4AEF54A357265111CAEF /* QCKDSL.m */; };
@@ -191,7 +191,7 @@
 		302EF8E66B89F3DB1A346EC83C76CA6F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34B5614CBE84B80AA39F75553B3C322A /* Stringers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Stringers.swift; path = Sources/Nimble/Utils/Stringers.swift; sourceTree = "<group>"; };
 		35AEA5EE84902B2868710A17C747AE0E /* MatchError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MatchError.swift; path = Sources/Nimble/Matchers/MatchError.swift; sourceTree = "<group>"; };
-		36B76DEA3B7D5FFF6D036DF36C382887 /* Snap2me.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Snap2me.swift; path = Snap2me/Classes/Snap2me.swift; sourceTree = "<group>"; };
+		36B76DEA3B7D5FFF6D036DF36C382887 /* Snap2meView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Snap2meView.swift; path = Snap2me/Classes/Snap2meView.swift; sourceTree = "<group>"; };
 		38A82DE4A0130E4C946A904FEDDD74CA /* QuickSpec.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QuickSpec.m; path = Sources/QuickObjectiveC/QuickSpec.m; sourceTree = "<group>"; };
 		3B6BAD1D6087151AE80585CD387919BA /* CwlDarwinDefinitions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CwlDarwinDefinitions.swift; path = Carthage/Checkouts/CwlPreconditionTesting/Sources/CwlPreconditionTesting/CwlDarwinDefinitions.swift; sourceTree = "<group>"; };
 		3FBDD60AB5EC0183A198A13D9A5D7BCE /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -578,7 +578,7 @@
 			isa = PBXGroup;
 			children = (
 				FFA27801207E8F41009BE3DB /* GuideLine.swift */,
-				36B76DEA3B7D5FFF6D036DF36C382887 /* Snap2me.swift */,
+				36B76DEA3B7D5FFF6D036DF36C382887 /* Snap2meView.swift */,
 				961D9DAF7DE778531398175AADBC05C6 /* Pod */,
 				6560FF70B7017B64D401DE8E1E93DBBC /* Support Files */,
 			);
@@ -897,7 +897,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D50636A0D4B07C187EB5B7499B738211 /* Snap2me.swift in Sources */,
+				D50636A0D4B07C187EB5B7499B738211 /* Snap2meView.swift in Sources */,
 				1698F0E8B3000495BA034044DD09E0EE /* Snap2me-dummy.m in Sources */,
 				FFA27802207E8F41009BE3DB /* GuideLine.swift in Sources */,
 			);
