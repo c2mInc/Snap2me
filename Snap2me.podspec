@@ -8,18 +8,18 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Snap2me'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = 'Snap2me helps you add the snap feature to your views.'
 
   s.description      = <<-DESC
     Your views need some guidance when users drag and drop things in it. Snap2me helps you implement these line guides into any view and its subviews are snapped once they are captured in a threshold.
                        DESC
 
-  s.homepage         = 'https://github.com/erkekin/Snap2me'
-  s.screenshots     = 'https://github.com/erkekin/Snap2me/blob/master/gifs/storyboard.gif?raw=true', 'https://github.com/erkekin/Snap2me/blob/master/gifs/swift.gif?raw=true'
+  s.homepage         = 'https://github.com/c2mInc/Snap2me/'
+  s.screenshots     = 'https://github.com/c2mInc/Snap2me/blob/master/gifs/storyboard.gif?raw=true', 'https://github.com/c2mInc/Snap2me/blob/master/gifs/swift.gif?raw=true'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'erkekin' => 'erkekin@gmail.com' }
-  s.source           = { :git => 'https://github.com/erkekin/Snap2me.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/c2mInc/Snap2me.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/erkekin'
 
   s.ios.deployment_target = '9.0'
