@@ -40,7 +40,13 @@ draggingView.axisPercentages = [
 ## Customization
 
 ```swift
-    draggableView.settings = GuideLine.Settings(lineColor: UIColor.red, lineWidth: 4, shadowColor: UIColor.brown, flushesInitially: true)
+draggableView.settings = GuideLine.Settings(
+    lineColor: UIColor.red,
+    lineWidth: 4,
+    shadowColor: UIColor.brown,
+    flushesInitially: true,
+    threshold: 15
+)
 ```
 
 ## Installation
