@@ -8,7 +8,7 @@
 import UIKit
 import Snap2me
 
-class CustomDraggableView: Snap2meView{
+class DraggableSubClassView: Snap2meView{
     
     
 }
